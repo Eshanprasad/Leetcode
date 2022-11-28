@@ -1,0 +1,43 @@
+"""
+I = 1
+X = 10
+L = 50
+C = 100
+D = 500
+M = 1000
+"""
+li= ["", 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX']
+i = int(input('enter number'))
+rem = i
+out = ""
+for ele in range(len(str(i))):
+    a = rem%10
+    rem = rem//10
+    if ele == 0:
+        out = li[a]
+    elif ele == 1:
+        if a < 4:
+            out = 'X' * a + out
+        elif a==4:
+            out = 'XL' + out
+        elif a == 5:
+            out = 'L' + out
+        elif a<9 and a>5:
+            out = 'L' +'X' * (a-5) + out
+        elif a==9:
+            out = 'XC'+ out
+    elif ele == 2:
+        if a<4:
+            out = 'C' * a + out
+        elif a == 4:
+            out = 'CD' + out
+        elif a == 5:
+            out = 'D' + out
+        elif a>5 and a<9:
+            out = 'D' + 'C' * (a-5) + out
+        elif a == 9:
+            out = 'CM' + out
+    elif ele == 3:
+        if a<4:
+            out = 'M' * a + out
+print(out)

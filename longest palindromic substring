@@ -1,0 +1,23 @@
+class Solution(object):
+    def longestPalindrome(self, s):
+        sub = None
+        l = len(s)
+        mx = 0
+        for i in range(l):
+            if l-i+1 > mx:
+                st = None
+                for j in range(l,i-1,-1):
+                    if j-i+1 > mx:
+                        if s[i] == s[j-1]:
+                            st = s[i:j]
+                            if st == st[::-1]:
+                                mx = j-i+1
+                                sub = st
+                                break
+                        else:
+                            continue
+                    else:
+                        break
+            else:
+                break
+        return sub

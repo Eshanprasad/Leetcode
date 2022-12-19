@@ -1,0 +1,46 @@
+class Solution():
+    def convert(self, s, numRows):
+        output = ""
+        i = 0
+        count = 1
+        length = len(s)
+        while count<=numRows:
+            if count==1:
+                string = s[i]
+                gap = (2*numRows) -2
+                ref = i+gap
+                while ref<length:
+                    string+=s[ref]
+                    ref+=gap
+                output+=string
+                i+=1
+                count+=1
+            elif count>1 and count<numRows:
+                string = s[i]
+                gap = 2*(numRows-count)
+                ref = i+gap
+                while ref<length:
+                    string+=s[ref]
+                    gap1 = 2*(count-1)
+                    if (ref+gap1)<length:
+                        ref = ref+gap1
+                        string+=s[ref]
+                        ref+=gap
+                    else:
+                        break
+                output+=string
+                i+=1
+                count+=1
+            elif count==numRows:
+                string = s[i]
+                ref = i
+                gap = 2*count -2
+                while (ref+gap)<length:
+                    string+=s[ref+gap]
+                    ref+=gap
+                output+=string
+                i+=1
+                count+=1
+        return output
+s = Solution()
+print(s.convert("eshanprasad", 6))

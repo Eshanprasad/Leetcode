@@ -1,0 +1,12 @@
+class Solution(object):
+    def threeSum(self, nums):
+        main_list = []
+        for i in range(len(nums)-2):
+            for j in range(i+1, len(nums)-1):
+                for k in range(j+1, len(nums)):
+                    if nums[i] + nums[j] + nums[k] ==0:
+                        l = [nums[i], nums[j],  nums[k]]
+                        l.sort()
+                        if l not in main_list:
+                            main_list.append(l)
+        return main_list
